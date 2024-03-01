@@ -74,7 +74,7 @@ stages:
       vmImage: 'ubuntu-20.04'
     environment: dev
     variables:
-    - group: Release
+    - group: New variable group 01-Mar
     strategy:
       runOnce:
         deploy:
@@ -84,6 +84,6 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'Resource Manager - Tailspin - Space Game'
-              appName: '$(WebAppName)'
+              azureSubscription: 'ADO_to_Azure_ServiceConnection'
+              appName: '$(tailspin_web_app)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
